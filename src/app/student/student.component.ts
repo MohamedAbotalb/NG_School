@@ -21,8 +21,9 @@ export class StudentComponent {
   }
 
   addStudent() {
+    const lastIndex = this.students.length - 1;
     const lastStudentId =
-      this.students.length > 0 ? this.students[this.students.length - 1].id : 0;
+      this.students.length > 0 ? this.students[lastIndex].id : 0;
     this.newStudent = { ...this.newStudent, id: lastStudentId + 1 };
     this.students.push(this.newStudent);
     this.newStudent = new Student(0, '', 0, '');
