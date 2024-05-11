@@ -1,0 +1,66 @@
+<div
+  class="modal fade"
+  id="addDepartmentModal"
+  role="dialog"
+  tabindex="-1"
+  aria-labelledby="addDepartmentModalLabel"
+  aria-hidden="true"
+  data-bs-backdrop="static"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addDepartmentModalLabel">
+          Add New Department
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <!-- Form to add a new department -->
+        <form (submit)="add()">
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              name="name"
+              required
+              [(ngModel)]="newDepartment.name"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="head" class="form-label">Head</label>
+            <input
+              type="text"
+              class="form-control"
+              id="head"
+              name="head"
+              required
+              [(ngModel)]="newDepartment.head"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="location" class="form-label">Location</label>
+            <input
+              type="text"
+              class="form-control"
+              id="location"
+              name="location"
+              required
+              [(ngModel)]="newDepartment.location"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
