@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Student } from '../../../../models/student';
 import { StudentService } from '../../../Services/student.service';
 import { FormsModule } from '@angular/forms';
@@ -11,12 +11,14 @@ import { Router } from '@angular/router';
   templateUrl: './student-add.component.html',
   styleUrl: './student-add.component.css',
 })
-export class StudentAddComponent {
+export class StudentAddComponent implements OnInit {
   students!: Student[];
   newStudent: Student = new Student(0, '', 0, '');
 
-  constructor(private studentService: StudentService, private router: Router) {
-    this.students = studentService.getAll();
+  constructor(private studentService: StudentService, private router: Router) {}
+
+  ngOnInit(): void {
+    this.students = this.studentService.getAll();
   }
 
   add() {
