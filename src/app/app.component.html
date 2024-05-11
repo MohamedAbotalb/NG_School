@@ -1,1 +1,25 @@
-<app-home></app-home>
+<app-header />
+
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <div class="col-lg-2 bg-secondary d-none d-md-block">
+      <app-sidebar />
+    </div>
+    <!-- End Sidebar -->
+
+    <!-- Main Content -->
+    <div class="col-lg-10 px-5">
+      <div class="container">
+        <div class="my-5">
+          <router-outlet />
+        </div>
+      </div>
+      <footer class="text-center fs-5 bg-light py-1">
+        <p>Copyright © 2024 Mohamed Abotalb.</p>
+      </footer>
+    </div>
+
+    <!-- End Main Content -->
+  </div>
+</div>
