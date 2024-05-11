@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { Student } from '../../../models/student';
-import { StudentService } from '../../Services/student.service';
+import { Student } from '../../../../models/student';
+import { StudentService } from '../../../Services/student.service';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-student-add',
@@ -14,7 +15,7 @@ export class StudentAddComponent {
   students!: Student[];
   newStudent: Student = new Student(0, '', 0, '');
 
-  constructor(private studentService: StudentService) {
+  constructor(private studentService: StudentService, private router: Router) {
     this.students = studentService.getAll();
   }
 
@@ -25,5 +26,6 @@ export class StudentAddComponent {
     this.newStudent = { ...this.newStudent, id: lastStudentId + 1 };
     this.studentService.add(this.newStudent);
     this.newStudent = new Student(0, '', 0, '');
+    this.router.navigateByUrl('students');
   }
 }
