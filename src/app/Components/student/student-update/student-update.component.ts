@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Student } from '../../../../models/student';
 import { FormsModule } from '@angular/forms';
 import { StudentService } from '../../../Services/student.service';
@@ -11,12 +11,14 @@ import { Router } from '@angular/router';
   templateUrl: './student-update.component.html',
   styleUrl: './student-update.component.css',
 })
-export class StudentUpdateComponent {
+export class StudentUpdateComponent implements OnInit {
   students!: Student[];
   @Input() selectedStudent!: Student;
 
-  constructor(private studentService: StudentService, private router: Router) {
-    this.students = studentService.getAll();
+  constructor(private studentService: StudentService, private router: Router) {}
+
+  ngOnInit(): void {
+    this.students = this.studentService.getAll();
   }
 
   update() {
